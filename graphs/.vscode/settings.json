@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "files.associations": {
+        "*.asm": "asm-collection",
+        "list": "cpp"
+    }
+}

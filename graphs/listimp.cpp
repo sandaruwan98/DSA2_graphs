@@ -2,11 +2,11 @@
 #include <iostream>
 #include <list> 
 using namespace std;
-// struct node
-// {
-//     list<int> vertex;
-//     int val;
-// };
+struct node
+{
+    list<int> vertex;
+    int val;
+};
 
 
 
@@ -39,10 +39,15 @@ void Graph::BFS(int s){
     
     list<int> queue;
     queue.push_back(s);
-
+    
+    visited[s] = 1;
     while (!queue.empty())
     {
         s = queue.front();
+        for ( i = 0; i < gph[s].size(); i++)
+        {
+           queue.push_back(1);
+        }
         
     }
     

@@ -2,11 +2,11 @@
 #include <iostream>
 #include <list> 
 using namespace std;
-struct node
-{
-    list<int> vertex;
-    int val;
-};
+// struct node
+// {
+//     list<int> vertex;
+//     int val;
+// };
 
 
 
@@ -40,14 +40,24 @@ void Graph::BFS(int s){
     list<int> queue;
     queue.push_back(s);
     
-    visited[s] = 1;
+    
+
+    std::list<int>::iterator j;
     while (!queue.empty())
     {
         s = queue.front();
-        for ( i = 0; i < gph[s].size(); i++)
+        //print 
+        cout << s << endl;
+        for ( j = gph[s].begin(); j != gph[s].end(); ++j)
         {
-           queue.push_back(1);
+            if (visited[*j] == 0)
+            {
+                queue.push_back(*j);
+                visited[*j] = 1;
+            }
         }
+
+        queue.pop_front();
         
     }
     
@@ -57,7 +67,12 @@ void Graph::BFS(int s){
 
 int main()
 {
-    
+    Graph g(4);
+    g.AddNode(0,1);
+    g.AddNode(1,3);
+    g.AddNode(2,1);
+    g.AddNode(3,0);
+    g.BFS(2);
     return 0;
 }
 

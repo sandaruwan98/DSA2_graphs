@@ -2,6 +2,8 @@
     "git.ignoreLimitWarning": true,
     "files.associations": {
         "*.asm": "asm-collection",
-        "list": "cpp"
+        "list": "cpp",
+        "cstdlib": "cpp",
+        "xutility": "cpp"
     }
 }

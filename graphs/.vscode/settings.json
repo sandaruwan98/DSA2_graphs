@@ -4,6 +4,10 @@
         "*.asm": "asm-collection",
         "list": "cpp",
         "cstdlib": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "initializer_list": "cpp",
+        "memory": "cpp",
+        "streambuf": "cpp",
+        "xstring": "cpp"
     }
 }

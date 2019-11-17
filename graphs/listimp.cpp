@@ -7,6 +7,8 @@ class Graph
 {
     list<int> *gph;
     int v;
+    int *inDegree;
+    int *outDegree;
 
 public:
     Graph(int v);
@@ -14,12 +16,16 @@ public:
     void BFS(int s);
     void DFS();
     void Visit(int v, char *visited);
+    void FindInDegree();
+    void FindOutDegree();
 };
 
 Graph::Graph(int v)
 {
     this->v = v;
     gph = new list<int>[v];
+    inDegree = new int[v];
+    outDegree = new int[v];
 }
 
 void Graph::AddNode(int v, int w)
@@ -30,6 +36,7 @@ void Graph::AddNode(int v, int w)
 void Graph::BFS(int s)
 {
     int *visited = new int[v];
+
     int i;
     for (i = 0; i < v; i++)
     {
@@ -86,6 +93,23 @@ void Graph::Visit(int v, char *visited)
     cout << v << endl;
 }
 
+void Graph::FindInDegree()
+{
+    int i;
+    for (i = 0; i < v; i++)
+        inDegree[i] = 0;
+
+    for (i = 0; i < v; i++)
+    {
+        list<int>::iterator j;
+        for (j = gph[i].begin(); j != gph[i].end(); ++j)
+            inDegree[*j]++;
+    }
+
+    for (i = 0; i < v; i++)
+        cout << i << " -- " << inDegree[i] << endl;
+}
+
 int main()
 {
     Graph g(4);
@@ -93,10 +117,16 @@ int main()
     g.AddNode(1, 3);
     g.AddNode(2, 1);
     g.AddNode(3, 0);
-    cout << endl << "BFS" << endl;
+    cout << endl
+         << "BFS" << endl;
     g.BFS(2);
-    cout << endl << "DFS" << endl;
+    cout << endl
+         << "DFS" << endl;
     g.DFS();
+    cout << endl
+         << "InDegree" << endl;
+    g.FindInDegree();
+   
     return 0;
 }
 

@@ -110,6 +110,23 @@ void Graph::FindInDegree()
         cout << i << " -- " << inDegree[i] << endl;
 }
 
+void Graph::FindOutDegree()
+{
+    int i;
+    for (i = 0; i < v; i++)
+        outDegree[i] = 0;
+
+    for (i = 0; i < v; i++)
+    {
+        list<int>::iterator j;
+        for (j = gph[i].begin(); j != gph[i].end(); ++j)
+            outDegree[i]++;
+    }
+
+    for (i = 0; i < v; i++)
+        cout << i << " -- " << outDegree[i] << endl;
+}
+
 int main()
 {
     Graph g(4);
@@ -126,7 +143,9 @@ int main()
     cout << endl
          << "InDegree" << endl;
     g.FindInDegree();
-   
+    cout << endl
+         << "OutDegree" << endl;
+    g.FindOutDegree();
     return 0;
 }
 

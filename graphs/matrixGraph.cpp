@@ -14,7 +14,7 @@ class Graph
 public:
     Graph(int v);
     void AddEdge(int v, int w) { matrix[v][w] = 1;}
-
+    
     void BFS(int s);
     void DFS();
     void Visit(int v, char *visited);
@@ -59,6 +59,36 @@ void Graph::PrintMatrix()
             cout << matrix[i][j] << " ";
         }
         cout << endl;
+    }
+}
+
+void Graph::BFS(int s)
+{
+    int *visited = new int[v];
+
+    int i;
+    for (i = 0; i < v; i++)
+    {
+        visited[i] = 0;
+    }
+
+    list<int> queue;
+    queue.push_back(s);
+
+    while (!queue.empty())
+    {
+        s = queue.front();
+        //print
+        cout << s << endl;
+        for ( i = 0; i < v; i++)
+        {
+            if (visited[i]==0 && matrix[s][i] == 1)
+            {
+                queue.push_back(i);
+                visited[i] = 1;
+            }   
+        }
+        queue.pop_front();
     }
 }
 

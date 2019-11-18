@@ -2,12 +2,14 @@
     "git.ignoreLimitWarning": true,
     "files.associations": {
         "*.asm": "asm-collection",
+        "*.cpp": "cpp",
         "list": "cpp",
         "cstdlib": "cpp",
         "xutility": "cpp",
         "initializer_list": "cpp",
         "memory": "cpp",
         "streambuf": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "iostream": "cpp"
     }
 }

@@ -39,7 +39,16 @@ public:
 
 
 
-Node*  RedBlackTree::Search(Node* root,int val) { 
+Node*  RedBlackTree::Search(Node* root,int val) {
+    if (root==NULL)
+        return root;
+    else if (root->data==val)
+        return root;
+    else if (root->data < val)
+        Search(root->right,val);
+    else if (root->data > val)
+        Search(root->left,val);
+    
     
 
 }
@@ -225,27 +234,26 @@ void RedBlackTree::fixViolation(Node *&root, Node *&ptr)
 
 bool hasCommonNums(RedBlackTree tree,int setB[]){
     int i;
-    for ( i = 0; i < sizeof(setB)/sizeof(int); i++){
-
+    for ( i = 0; i < 4; i++){
+        cout << i << endl;
+        if( tree.Search(tree.root,setB[i]) != NULL){
+            return false;
+        }
     }
+    return true;
 }
 
-// Driver Code
+
 int main()
 {
     RedBlackTree tree;
     int setA[] = {12,11,34,9,3};
-    int setB[] = {12,11,34,9,3};
+    int setB[] = {2,1,3,5};
     int i;
     for ( i = 0; i < sizeof(setA)/sizeof(int); i++)
         tree.insert(setA[i]);
 
-    cout << hasCommonNums(tree,setB);
+    cout << (hasCommonNums(tree,setB) ? "True" : "False") ;
     
-  
-
-    cout << "Inoder Traversal of Created Tree\n";
-    tree.inorder(tree.root);
-
     return 0;
 }

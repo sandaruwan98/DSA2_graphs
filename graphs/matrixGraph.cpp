@@ -165,7 +165,7 @@ int main()
   
     cout << endl
          << "BFS" << endl;
-    g.BFS(2);
+    g.BFS(3);
     // cout << endl
     //      << "DFS" << endl;
     // g.DFS();
